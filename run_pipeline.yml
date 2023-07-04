@@ -1,0 +1,33 @@
+name: Ejecuto el Proyecto GISTAQ-SAMEEP
+run-name: ${{ github.actor }} está ejecutando snakemake 🐍
+on: # [push]
+  schedule:
+  - cron: '0 10 * * *'
+jobs:
+  Ejecuto-Proyecto-GISTAQ-SAMEEP-2020:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Tareas activadas automáticamente debido a un evento ${{ github.event_name }}"
+      - run: echo "🐧 Las tareas están corriendo en un servidor ${{ runner.os }} alojado en GitHub"
+      - run: echo "🔎 El nombre del branch es ${{ github.ref }} y su repositorio es ${{ github.repository }}"
+      - name: Verificar el código del repositorio
+        uses: actions/checkout@v3
+      - run: echo "💡 El repositorio ${{ github.repository }} ha sido clonado en el runner"
+      - run: echo "🖥️ Las secuencias están listas para chequear su código en el runner"
+      - name: secuencia Snakemake
+        uses: snakemake/snakemake-github-action@v1
+        with:
+          directory: '.'
+          snakefile: 'Snakefile'
+          args: '--cores 1 --use-conda --conda-cleanup-pkgs cache'
+          stagein: '' # additional preliminary commands to run (can be multiline)}
+      - name: Configuro git en el runner
+        run: |
+          git config --local user.email "noreply@github.com"
+          git config --local user.name "GitHub"
+      - name: Commit de los cambios en el repositorio
+        run: |
+          git add .
+          git commit -m "Última valor de turbidez estimada"
+          git push origin main
+      - run: echo "🍏 El estado final es = ${{ job.status }}."
