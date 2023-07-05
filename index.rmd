@@ -72,34 +72,6 @@ dato_turb2 <- t_p2 |>
     mutate(l = sub(pattern = "\\.", replacement = ",", x = l)) |>
     pull(l)
 
-# FIGURA 1
-# gg_turb <- dato_turb2 |>
-#   as_tibble() |>
-#   ggplot(aes(x = 0, y = 0,
-#              label = glue("<span style='font-size:20pt'>Turbidez = 
-#                           {value} NTU</span><br>
-#                           <span style='font-size:7pt'>Fecha = 
-#                           {format(fecha_turb, '%d/%m/%Y')}</span>"))) +
-#   geom_richtext(label.color = NA, fill = "ivory",
-#                 family = "inter", hjust = 0) +
-#   coord_fixed(xlim = c(0, 10), ylim = c(-5, 5)) +
-#   labs(caption = glue("{format(now(tzone = 'America/Argentina/Buenos_Aires'), 
-#                         '%d/%m/%Y %T')}")) +
-#   theme_void() +
-#   theme(
-#     aspect.ratio = .5,
-#     plot.background = element_rect(fill = "ivory", color = NA),
-#     plot.caption = element_markdown(family = "inter", size = 6,
-#                                     color = "lightgrey")
-#   )
-
-# ggsave(plot = gg_turb,
-#        filename = "figuras/gg_turb__002.png",
-#        width = 10,
-#        height = 5,
-#        units = "cm",
-#        dpi = 300)
-
 # FIGURA 2
 t_p3 <- t_p2 |>
     mutate(p = format(round(.pred, 1), nsmall = 1) |> 
