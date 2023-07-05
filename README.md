@@ -22,7 +22,7 @@ Las tareas que se ejecutan automáticamente en este repositorio son:
 - Entrenamiento y estimación de la turbidez a partir de los datos satelitales últimos, mediante la técnica de *random forest*.
 - Creación de website con el último dato disponible de turbidez (NTU).
 
-El valor de turbidez actualizado correspondiente a la última fecha disponible se encuentra en el siguiente <a href="https://vhgauto.github.io/sameep/" target="_blank">link</a>.
+El valor de turbidez actualizado correspondiente a la última fecha disponible se encuentra en el siguiente [link](https://vhgauto.github.io/sameep/){:target="_blank"}.
 
 Contacto:  
 GISTAQ: [gistaq@ca.frre.utn.edu.ar](mailto:gistaq@ca.frre.utn.edu.ar)  
